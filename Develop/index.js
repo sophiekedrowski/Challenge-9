@@ -14,11 +14,11 @@ const questions = [
     name: 'Title',
     message: 'Title:',
   },
-  {
-    type: 'input',
-    name: 'Table of Contents',
-    message: 'Table of Contents:',
-  },
+  // {
+  //   type: 'input',
+  //   name: 'Table of Contents',
+  //   message: 'Table of Contents:',
+  // },
   {
     type: 'input',
     name: 'Description',
@@ -55,8 +55,14 @@ const questions = [
     message: "Enter tests:"
   },
   {
-    name: "Email",
-    message: "Enter contact email:",
+    name: "username",
+    // message: "Enter contact email:",
+    message: "Enter github username:",
+  },
+  {
+    name: "email",
+    // message: "Enter contact email:",
+    message: "Enter your email:",
   }
 ]
 // // TODO: Create a function to initialize app
