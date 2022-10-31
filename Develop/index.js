@@ -3,9 +3,17 @@
 // TODO: Create an array of questions for user input
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdownJsFile = require('./utils/generateMarkdown');
+// let markdownJs = generateMarkdownJsFile.generateMarkdown;
 
+// generateMarkdownJsFile("fasdassa")
 
 const questions = [
+  {
+    type: 'input',
+    name: 'Title',
+    message: 'Title:',
+  },
   {
     type: 'input',
     name: 'Table of Contents',
@@ -21,7 +29,7 @@ const questions = [
     name: 'licenses',
     message: 'Licenses:',
     choices:
-      ["MIT", "GPLv3", "GPL"]
+      ["MIT", "GPLv3", "GPL", "n/a"]
   },
   {
     type: 'input',
@@ -51,15 +59,6 @@ const questions = [
     message: "Enter contact email:",
   }
 ]
-
-// .then((data) => {
-//     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-//       err ? console.log(err) : console.log('Success!')
-//     );
-//   });
-
 // // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then(resp => {
@@ -69,16 +68,12 @@ function init() {
 }
 
  function generateReadMe(resp) {
+  const mkdwnStr = generateMarkdownJsFile(resp)
+  const filename = "README.md";
 
-  const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-
-  fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => {
+  fs.writeFile(filename, mkdwnStr, (err) => {
     err ? console.log(err) : console.log('Success!')})
 }
-
-
-
-
 
 // Function call to initialize app
 init();
